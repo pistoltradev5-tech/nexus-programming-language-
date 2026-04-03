@@ -1,42 +1,42 @@
-🧠 AI Language Compiler
-Next-Generation Programming Language for Artificial Intelligence
+<div align="center">
 
-"Write neural networks like mathematics, not like software."
+**Next-Generation Programming Language for Artificial Intelligence**
 
-✨ Features (MVP)
-🎯 Neural Syntax - Clean arrow-based notation (→, ||, ×)
-🎨 Unicode Support - Native Greek letters (α, β, σ) and math symbols (∑, ∫, √)
-📐 Shape-Safe Types - Compile-time tensor shape verification
-🔄 Code Generation - Transpile to PyTorch Python code
-💻 Interactive REPL - Experiment with syntax instantly
-🚀 Quick Start
-Using GitHub Codespaces
-Click "Open in Codespaces" or clone this repo
-The dev container will set up automatically
-Build and run:
-# Build the compilercargo build --release# Run interactive REPLcargo run --repl# Or compile a filecargo run --file examples/simple_cnn.ai
-Local Development
-# Prerequisites: Rust stable toolchain
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+*"Write neural networks like mathematics, not like software."*
 
-# Clone and build
+[![Rust](https://img.shields.io/badge/Made%20with-Rust-orange?logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![codecov](https://img.shields.io/codecov/c/github/antoniosarosi/ai-lang.svg)]()
+
+</div>
+
+---
+
+## ✨ Fitur Utama
+
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🎯 **Neural Syntax** | Notasi panah (`→`, `\|\|`, `×`) yang bersih dan intuitif |
+| 🎨 **Unicode Support** | Huruf Yunani native (α, β, σ) dan simbol matematika (∑, ∫, √) |
+| 📐 **Shape-Safe Types** | Verifikasi bentuk tensor pada waktu kompilasi |
+| 🔄 **Code Generation** | Transpilasi ke kode PyTorch Python secara otomatis |
+| 💻 **Interactive REPL** | Eksperimen sintaks secara instan |
+| ⚡ **Zero Dependencies Runtime** | Dibangun dengan Rust murni, cepat dan aman |
+
+---
+
+## 🚀 Quick Start
+
+### Menggunakan GitHub Codespaces (Recommended) 👆
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/new?template=)](https://github.com/codespaces/new?template=)
+
+Klik tombol di atas atau ikuti langkah berikut:
+
+```bash
+# Clone repository
 git clone https://github.com/YOUR_USERNAME/ai-lang.git
 cd ai-lang
-cargo build --release
 
-# Run REPL
-cargo run --repl
-
-# Compile example
-cargo run -- -f examples/simple_cnn.ai --ast
-📖 Language Reference
-Model Definition
-model ModelName {
-    input: Image<channels, height, width>
-    output: Vector<num_classes>
-    
-    flow: input
-        → Layer1(params) + PostOp1 + PostOp2
-        → Layer2(params)
-        → output
-}
+# Buka di Codespaces
+gh codespace new .
