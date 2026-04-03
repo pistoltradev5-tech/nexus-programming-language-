@@ -6,7 +6,7 @@
 
 [![Rust](https://img.shields.io/badge/Made%20with-Rust-orange?logo=rust&logoColor=white)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![codecov](https://img.shields.io/codecov/c/github/antoniosarosi/ai-lang.svg)]()
+[![codecov](https://img.shields.io/codecov/c/github/pistoltradev5-tech/nexus-programming-language-.svg)](https://codecov.io/gh/pistoltradev5-tech/nexus-programming-language-)
 
 </div>
 
@@ -29,14 +29,14 @@
 
 ### Menggunakan GitHub Codespaces (Recommended) 👆
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/new?template=)](https://github.com/codespaces/new?template=)
+[![Open in GitHub Codespaces](https://github.com/codespaces/new?template=pistoltradev5-tech/nexus-programming-language-)](https://github.com/codespaces/new?template=pistoltradev5-tech/nexus-programming-language-)
 
 Klik tombol di atas atau ikuti langkah berikut:
 
 ```bash
 # Clone repository
-git clone https://github.com/pistoltradev5-tech/ai-lang.git
-cd ai-lang
+git clone https://github.com/pistoltradev5-tech/nexus-programming-language-.git
+cd nexus-programming-language-
 
 # Buka di Codespaces
 gh codespace new .
