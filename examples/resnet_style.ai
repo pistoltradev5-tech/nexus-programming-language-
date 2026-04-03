@@ -1,0 +1,48 @@
+// ResNet-style architecture with repeat blocks
+// Demonstrates the × (repeat) syntax
+
+model ResNetStyle {
+    input: Image<3, 224, 224>
+    output: Vector<1000>
+
+    flow: input
+        // Initial convolution
+        → Conv2D(64, 7×7, stride=2, padding=3)
+        + BatchNorm
+        + ReLU
+        + MaxPool(3×3, stride=2, padding=1)
+        
+        // Residual stages - repeat blocks!
+        → [ResidualBlock(channels=64, filters=64)] × 3
+        → [ResidualBlock(channels=128, filters=128, stride=2)] × 4
+        → [ResidualBlock(channels=256, filters=256, stride=2)] × 6
+        → [ResidualBlock(channels=512, filters=512, stride=2)] × 3
+        
+        // Classification
+        → GlobalAvgPool
+        → Dense(1000)
+        
+        → output
+
+    // Reusable block definition
+    block ResidualBlock(channels, filters, stride=1) {
+        // Main path
+        main: input
+            → Conv2D(filters, 1×1)
+            + BatchNorm + ReLU
+            → Conv2D(filters, 3×3, padding="same")
+            + BatchNorm + ReLU
+            → Conv2D(channels * 4, 1×1)
+            + BatchNorm
+        
+        // Skip connection
+        skip: input
+        ? (channels != filters * 4 || stride > 1)
+        → Conv2D(channels * 4, 1×1, stride=stride)
+        + BatchNorm
+        : identity
+        
+        // Merge: add skip to main, then activate
+        output: main + skip → ReLU
+    }
+}

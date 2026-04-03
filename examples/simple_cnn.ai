@@ -1,0 +1,50 @@
+// Simple CNN Classifier using Neural Syntax
+// This demonstrates the clean, readable syntax of our language
+
+model SimpleCNN {
+    input: Image<3, 224, 224>
+    output: Vector<1000>
+
+    // Data flow definition using arrow notation
+    // Each → represents sequential data flow
+    // + represents same-stage operations
+    
+    flow: input
+        // Stage 1: Initial feature extraction
+        → Conv2D(filters=64, kernel_size=3×3, padding="same")
+        + BatchNorm
+        + ReLU
+        + MaxPool(size=2×2)
+        
+        // Stage 2: More features
+        → Conv2D(filters=128, kernel_size=3×3, padding="same")
+        + BatchNorm
+        + ReLU
+        + MaxPool(size=2×2)
+        
+        // Stage 3: Deep features
+        → Conv2D(filters=256, kernel_size=3×3, padding="same")
+        + BatchNorm
+        + ReLU
+        
+        // Classification head
+        → GlobalAvgPool
+        → Flatten
+        → Dense(units=512)
+        + ReLU
+        + Dropout(rate=0.5)
+        
+        → Dense(units=1000)
+        + Softmax
+        
+        → output
+}
+
+// Training configuration
+train SimpleCNN on ImageNet {
+    epochs = 90
+    batch_size = 256
+    optimizer = AdamW
+    learning_rate = 0.001
+    loss = CrossEntropyLabelSmoothing
+}
