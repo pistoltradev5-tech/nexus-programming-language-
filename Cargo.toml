@@ -1,0 +1,38 @@
+[package]
+name = "ai-lang"
+version = "0.1.0"
+edition = "2021"
+description = "Next-Gen AI Programming Language Compiler"
+authors = ["Your Name <you@example.com>"]
+
+[dependencies]
+# Command line argument parsing
+clap = { version = "4.4", features = ["derive"] }
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Pretty error reporting
+miette = { version = "5.10", features = ["fancy"] }
+
+# Unicode handling
+unicode-xid = "0.3"
+
+# Logging
+log = "0.4"
+env_logger = "0.10"
+
+# Regex for lexer (optional, we'll write our own)
+regex = "1.10"
+
+[[bin]]
+name = "ai-lang"
+path = "src/main.rs"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
