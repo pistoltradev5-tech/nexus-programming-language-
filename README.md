@@ -35,7 +35,7 @@ Klik tombol di atas atau ikuti langkah berikut:
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/ai-lang.git
+git clone https://github.com/pistoltradev5-tech/ai-lang.git
 cd ai-lang
 
 # Buka di Codespaces
